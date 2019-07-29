@@ -5,13 +5,13 @@ import Track from '../Track/Track';
 class TrackList extends Component {
     constructor(props){
         super(props)
-        this.state = { 
+        this.state = {
         }
     }
     
     render() { 
-        console.log(this.props.tracks);
-        const tracks = this.props.tracks.map((element)=> {
+        
+        const tracks = this.props.tracks.map((element) => {
             return <Track info={element} key={element.id}/> 
         })
         

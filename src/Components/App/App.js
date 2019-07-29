@@ -33,8 +33,9 @@ class App extends React.Component {
       ],
     }
   }
-  
+
   render(){
+    
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
@@ -43,9 +44,10 @@ class App extends React.Component {
           <div className="App-playlist">
             <SearchResults 
               searchResults={this.state.searchResults}/>
-            {/* <Playlist 
+            <Playlist 
               playlistName={this.state.playlistName}
-              playlistTracks={this.state.playlistTracks} /> */}
+              playlistTracks={this.state.playlistTracks} 
+              />
           </div>
         </div>
       </div>
