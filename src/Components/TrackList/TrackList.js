@@ -9,15 +9,20 @@ class TrackList extends Component {
         }
     }
     
+    tracks = this.props.tracks.map((element) => {
+        return <Track 
+                track={element} 
+                key={element.id}
+                onAdd={this.props.onAdd}
+                isRemoval={this.props.isRemoval}
+                /> 
+    })
+
     render() { 
-        
-        const tracks = this.props.tracks.map((element) => {
-            return <Track info={element} key={element.id}/> 
-        })
-        
+        console.log("tracklist rendered");
         return ( 
             <div className="TrackList">
-                {tracks}
+                {this.tracks}
             </div>
          );
     }

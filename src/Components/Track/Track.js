@@ -5,19 +5,32 @@ class Track extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isRemoval: true,
         }
+        this.renderAction = (this.props.isRemoval ?
+            <button className="Track-action">-
+            </button>
+            :
+            <button className="Track-action"
+                    onClick={this.addTrack.bind(this)}>+
+            </button>
+        )
+        this.addTrack = this.addTrack.bind(this);
     }
 
+    addTrack() {
+        this.props.onAdd(this.props.track)
+    }
+
+    
+
     render() { 
-        
         return ( 
             <div className="Track">
                 <div className="Track-information">
-                    <h3>{this.props.info.name}</h3>
-                    <p>{this.props.info.artist} | {this.props.info.album}</p>
+                    <h3>{this.props.track.name}</h3>
+                    <p>{this.props.track.artist} | {this.props.track.album}</p>
                 </div>
-                <button className="Track-action">{this.state.isRemoval ? '-' : '+'}</button>
+                {this.renderAction}
             </div>
          );
     }

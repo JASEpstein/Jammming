@@ -13,8 +13,9 @@ class App extends React.Component {
           name: "Chaos",
           artist: "Mutemath",
           album: "Mutemath (2006)",
-          id: 123
+          id: 523
         },
+
       ],
       playlistName: "Groovy Playlist",
       playlistTracks: [
@@ -32,6 +33,17 @@ class App extends React.Component {
         },
       ],
     }
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track) {
+    console.log("ping!");
+    console.log(this.state.playlistTracks);
+    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+      return;
+    } else {
+      this.state.playlistTracks.push(track)
+    }
   }
 
   render(){
@@ -43,10 +55,12 @@ class App extends React.Component {
           {/* <SearchBar/> */}
           <div className="App-playlist">
             <SearchResults 
-              searchResults={this.state.searchResults}/>
+              searchResults={this.state.searchResults}
+              onAdd={this.addTrack.bind(this)}
+              />
             <Playlist 
               playlistName={this.state.playlistName}
-              playlistTracks={this.state.playlistTracks} 
+              playlistTracks={this.state.playlistTracks}
               />
           </div>
         </div>
