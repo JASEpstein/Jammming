@@ -9,20 +9,20 @@ class TrackList extends Component {
         }
     }
     
-    tracks = this.props.tracks.map((element) => {
-        return <Track 
-                track={element} 
-                key={element.id}
-                onAdd={this.props.onAdd}
-                isRemoval={this.props.isRemoval}
-                /> 
-    })
+    
 
     render() { 
-        console.log("tracklist rendered");
+        // console.log("tracklist rendered");
         return ( 
             <div className="TrackList">
-                {this.tracks}
+                {this.tracklist = this.props.tracks.map((element) => {
+            return <Track 
+                    track={element} 
+                    key={element.id}
+                    onAdd={this.props.onAdd}
+                    isRemoval={this.props.isRemoval}
+                    /> 
+        }) }
             </div>
          );
     }

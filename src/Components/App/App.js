@@ -31,19 +31,24 @@ class App extends React.Component {
           album: "This Land (2019)",
           id: 2
         },
+        
       ],
     }
-    this.addTrack = this.addTrack.bind(this);
   }
 
-  addTrack(track) {
-    console.log("ping!");
-    console.log(this.state.playlistTracks);
+  addTrack(track) {    
     if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
       return;
     } else {
-      this.state.playlistTracks.push(track)
+      this.updateState(track);
+      console.log(this.state.playlistTracks);
     }
+  }
+
+  updateState(track) {
+    this.setState(prevState => ({
+      playlistTracks: [...prevState.playlistTracks, track]
+      }))
   }
 
   render(){
